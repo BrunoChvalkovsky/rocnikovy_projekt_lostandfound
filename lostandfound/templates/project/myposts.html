@@ -1,7 +1,10 @@
 {% extends "project/base.html" %}
 
+{% block header %}
+{% endblock %}
+
 {% block main %}
-<h1>My Posts</h1>
+<h2>My Posts</h2>
 
 <form method="POST" action="{% url 'logout' %}">
   {% csrf_token %}

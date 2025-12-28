@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Post, Profile
 
 def homepage (request):
@@ -50,6 +51,8 @@ def myposts(request):
                   })
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect("homepage")
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -65,7 +68,21 @@ def login_view(request):
     return render(request, 'project/login.html', {'page': 'login'})
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect("homepage")
+    if request.method == "POST":
+            username = request.POST.get("username")
+            password = request.POST.get("password")
+            contact = request.POST.get("contact")
+            name = request.POST.get("name")
 
+            user = User.objects.create_user(username=username, password=password)
+            
+            user.profile.name = name
+            user.profile.contact = contact
+            user.profile.save()
+
+            return redirect("login")
     return render(request, 'project/signup.html',
                   {
                       'page': 'signup',
