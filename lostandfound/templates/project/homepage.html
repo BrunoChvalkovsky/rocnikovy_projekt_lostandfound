@@ -1,8 +1,33 @@
 {% extends 'project/base.html' %}
+
 {% block header %}
-    <h1>Lost and Found</h1>
 {% endblock %}
+
 {% block main %}
+    <h2>Available Posts</h2>
+    <ul>
+        {% for post in posts %}
+            {% if post.is_solved == False %}
+                <div class="post-item">
+                    {% if post.owner == user %}
+                        <a class="owner" href="{% url 'myposts' %}">
+                            {{ post.owner.profile.name }}
+                        </a>
+                    {% else %}
+                    <a class="owner" href="{% url 'userposts' post.owner.id %}">
+                        {{ post.owner.profile.name }}
+                    </a>
+                    {% endif %}
+                    <a class="post-item" href="{% url 'postdetails' post.id %}">
+                        <h2>{{ post.title }}</h2>
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </ul>
 {% endblock %}
+
 {% block footer %}
 {% endblock %}

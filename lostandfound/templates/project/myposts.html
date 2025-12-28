@@ -1,0 +1,23 @@
+{% extends "project/base.html" %}
+
+{% block main %}
+<h1>My Posts</h1>
+
+<form method="POST" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+
+<ul>
+  {% for post in posts %}
+    <li>
+      <strong>{{ post.title }}</strong> - {{ post.description }}
+      {% if post.is_solved %}
+        (Solved)
+      {% endif %}
+    </li>
+  {% empty %}
+    <li>No posts yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
