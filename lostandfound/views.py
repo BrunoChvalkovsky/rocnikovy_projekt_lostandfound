@@ -5,21 +5,23 @@ from .models import Post, Profile
 
 def homepage (request):
     posts = Post.objects.all()
-    user = request.user
-    profile = user.profile
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     return render(request, 'project/homepage.html',
                 {
                         'page': 'homepage',
                         'posts': posts,
-                        "user": user,
                         "profile": profile,
                   })
 
 def postdetails(request, id):
-
+    post = get_object_or_404(Post, id=id)
     return render(request, 'project/postdetails.html',
                   {
                       'page': 'postdetails',
+                      'post': post
                   })
 @login_required
 def createpost(request):
@@ -61,12 +63,14 @@ def login_view(request):
                 "error": "Invalid username or password"
             })
     return render(request, 'project/login.html', {'page': 'login'})
+
 def signup(request):
 
     return render(request, 'project/signup.html',
                   {
                       'page': 'signup',
                   })
+
 @login_required
 def logout_view(request):
     auth_logout(request)

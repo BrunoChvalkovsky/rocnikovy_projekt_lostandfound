@@ -40,3 +40,6 @@ dmypy.json
 
 # Static files
 staticfiles/
+
+#  Media files
+media/
