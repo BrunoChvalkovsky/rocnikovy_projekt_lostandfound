@@ -1,1 +1,42 @@
+# Virtual environments
 .venv
+
+# Database files
+db.sqlite3
+
+# IDE files
+.vscode
+
+# Python files
+__pycache__/
+*.py,cover
+*.egg-info/
+
+# Distribution files
+dist/
+build/
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# Coverage files
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# Testing and linting
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Static files
+staticfiles/
