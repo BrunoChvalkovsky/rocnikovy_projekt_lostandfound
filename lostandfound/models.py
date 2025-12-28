@@ -19,6 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=80)
     description = models.TextField()
     image = models.ImageField(upload_to="post_images/")
+    is_solved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

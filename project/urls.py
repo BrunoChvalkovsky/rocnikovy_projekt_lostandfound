@@ -22,4 +22,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lostandfound.views.homepage, name='homepage'),
+    path('postdetails/<int:id>/', lostandfound.views.postdetails, name='postdetails'),
+    path('createpost/', lostandfound.views.createpost, name='createpost'),
+    path('userposts/<int:id>/', lostandfound.views.userposts, name='userposts'),
+    path('myposts/', lostandfound.views.myposts, name='myposts'),
+    path('login/', lostandfound.views.login, name='login'),
+    path('signup/', lostandfound.views.signup, name='signup'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
