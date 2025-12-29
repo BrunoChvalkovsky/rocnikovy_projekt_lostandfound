@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block main %}
-    <h2>Available Posts</h2>
+    <h2>All Available Posts</h2>
     <ul>
         {% for post in posts %}
                 <div class="post-item">
@@ -22,6 +22,8 @@
                         <img src="{{ post.image.url }}" alt="{{ post.title }}">
                     </a>
                 </div>
+        {% empty %}
+            <h2>No posts available.</h2>
         {% endfor %}
         
     </ul>

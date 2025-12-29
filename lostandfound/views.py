@@ -26,12 +26,22 @@ def homepage(request):
 
 def postdetails(request, id):
     post = get_object_or_404(Post, id=id)
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     return render(request, 'project/postdetails.html',
                   {
-                      'post': post
+                      'post': post,
+                      'profile': profile
                   })
 @login_required
 def createpost(request):
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
+    
     if request.method == "POST":
         title = request.POST.get("title", "")
         description = request.POST.get("description", "")
@@ -70,27 +80,45 @@ def createpost(request):
 
         return redirect("myposts")
 
-    return render(request, "project/createpost.html")
+    return render(request, "project/createpost.html",{
+                      "profile": profile,
+    })
 
 
 def userposts(request, id):
     posts = Post.objects.filter(owner__id=id)
     posts = posts.order_by('-id')
+    user = User.objects.get(id=id)
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     return render(request, 'project/userposts.html',
                   {
                       'posts': posts,
+                      'profile': profile,
+                      'user': user
                   })
 
 @login_required
 def myposts(request):
     posts = Post.objects.filter(owner=request.user)
     posts = posts.order_by('-id')
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     return render(request, 'project/myposts.html',
                   {
                       'posts': posts,
+                      'profile': profile
                   })
 
 def login_view(request):
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     if request.user.is_authenticated:
         return redirect("homepage")
     if request.method == "POST":
@@ -104,9 +132,15 @@ def login_view(request):
             return render(request, 'project/login.html', {
                 "error": "Invalid username or password"
             })
-    return render(request, 'project/login.html')
+    return render(request, 'project/login.html', {
+        "profile": profile
+    })
 
 def signup(request):
+    if request.user.is_authenticated:
+        profile = request.user.profile
+    else:
+        profile = None
     if request.user.is_authenticated:
         return redirect("homepage")
     if request.method == "POST":
@@ -124,6 +158,7 @@ def signup(request):
             return redirect("login")
     return render(request, 'project/signup.html',
                   {
+                      "profile": profile
                   })
 
 @login_required

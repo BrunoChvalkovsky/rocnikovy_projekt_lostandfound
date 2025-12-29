@@ -1,0 +1,23 @@
+{% extends 'project/base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <h2>All {{ user.profile.name }}'s Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <div class="post-item">
+                <a class="post-content" href="{% url 'postdetails' post.id %}">
+                    <h2>{{ post.title }}</h2>
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+            </div>
+        {% empty %}
+            <h2>No posts yet.</h2>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
