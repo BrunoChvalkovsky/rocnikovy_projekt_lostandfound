@@ -11,16 +11,19 @@
   <button type="submit">Logout</button>
 </form>
 
+<button onclick="window.location.href='{% url 'createpost' %}'">Create New Post</button>
+
 <ul>
   {% for post in posts %}
-    <li>
-      <strong>{{ post.title }}</strong> - {{ post.description }}
+    <div class="post-item">
+      <a href="{% url 'postdetails' post.id %}">{{ post.title }}</a>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}">
       {% if post.is_solved %}
         (Solved)
       {% endif %}
-    </li>
+    </div>
   {% empty %}
-    <li>No posts yet.</li>
+    <h2>No posts yet.</h2>
   {% endfor %}
 </ul>
 {% endblock %}

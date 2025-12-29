@@ -3,16 +3,23 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Post, Profile
+from io import BytesIO
+import uuid
+from django.core.files.base import ContentFile
+from PIL import Image
 
-def homepage (request):
-    posts = Post.objects.all()
+from pillow_heif import register_heif_opener
+register_heif_opener()
+
+def homepage(request):
+    posts = Post.objects.filter(is_solved=False).exclude(owner=request.user) if request.user.is_authenticated else Post.objects.filter(is_solved=False)
+    posts = posts.order_by('-id')
     if request.user.is_authenticated:
         profile = request.user.profile
     else:
         profile = None
     return render(request, 'project/homepage.html',
                 {
-                        'page': 'homepage',
                         'posts': posts,
                         "profile": profile,
                   })
@@ -21,32 +28,65 @@ def postdetails(request, id):
     post = get_object_or_404(Post, id=id)
     return render(request, 'project/postdetails.html',
                   {
-                      'page': 'postdetails',
                       'post': post
                   })
 @login_required
 def createpost(request):
+    if request.method == "POST":
+        title = request.POST.get("title", "")
+        description = request.POST.get("description", "")
+        image = request.FILES.get("image")
 
-    return render(request, 'project/createpost.html',
-                  {
-                      'page': 'createpost',
-                  })
+        if not image:
+            return render(request, "project/createpost.html", {
+                "error": "Image is required.",
+                "title": title,
+                "description": description,
+            })
+
+        try:
+            img = Image.open(image)
+            img = img.convert("RGB")
+
+            buffer = BytesIO()
+            img.save(buffer, format="JPEG", quality=85)
+            buffer.seek(0)
+
+            filename = f"{uuid.uuid4()}.jpg"
+            jpg_image = ContentFile(buffer.read(), name=filename)
+        except Exception:
+            return render(request, "project/createpost.html", {
+                "error": "Invalid or unsupported image file.",
+                "title": title,
+                "description": description,
+            })
+
+        Post.objects.create(
+            owner=request.user,
+            title=title,
+            description=description,
+            image=jpg_image,
+        )
+
+        return redirect("myposts")
+
+    return render(request, "project/createpost.html")
+
 
 def userposts(request, id):
     posts = Post.objects.filter(owner__id=id)
+    posts = posts.order_by('-id')
     return render(request, 'project/userposts.html',
                   {
-                      'page': 'userposts',
                       'posts': posts,
                   })
 
 @login_required
 def myposts(request):
     posts = Post.objects.filter(owner=request.user)
-
+    posts = posts.order_by('-id')
     return render(request, 'project/myposts.html',
                   {
-                      'page': 'myposts',
                       'posts': posts,
                   })
 
@@ -59,13 +99,12 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect("homepage")
+            return redirect("myposts")
         else:
             return render(request, 'project/login.html', {
-                'page': 'login',
                 "error": "Invalid username or password"
             })
-    return render(request, 'project/login.html', {'page': 'login'})
+    return render(request, 'project/login.html')
 
 def signup(request):
     if request.user.is_authenticated:
@@ -85,7 +124,6 @@ def signup(request):
             return redirect("login")
     return render(request, 'project/signup.html',
                   {
-                      'page': 'signup',
                   })
 
 @login_required

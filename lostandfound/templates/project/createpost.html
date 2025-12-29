@@ -1,0 +1,21 @@
+{% extends 'project/base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <h2>Create New Post</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title" value="{{ title|default:'' }}" required>
+        <textarea name="description" placeholder="Description" required>{{ description|default:'' }}</textarea>
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Create Post</button>
+    </form>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

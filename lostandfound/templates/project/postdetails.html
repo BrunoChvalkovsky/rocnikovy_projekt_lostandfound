@@ -1,0 +1,24 @@
+{% extends 'project/base.html'%}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <div class="details">
+    {% if post.owner == user %}
+        <a class="owner" href="{% url 'myposts' %}">
+            {{ post.owner.profile.name }}
+        </a>
+    {% else %}
+        <a class="owner" href="{% url 'userposts' post.owner.id %}">
+            {{ post.owner.profile.name }}
+        </a>
+    {% endif %}
+    <h2>{{ post.title }}</h2>
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    <p>{{ post.description }}</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
