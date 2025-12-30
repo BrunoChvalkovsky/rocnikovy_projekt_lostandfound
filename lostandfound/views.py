@@ -30,6 +30,16 @@ def postdetails(request, id):
         profile = request.user.profile
     else:
         profile = None
+    if request.method == "POST" and request.user == post.owner:
+        post.is_solved = not post.is_solved
+        post.save()
+        if "delete" in request.POST:
+            if post.image:
+                post.image.delete(save=False)
+            post.delete()
+            return redirect("myposts")
+
+        return redirect("postdetails", id=post.id)
     return render(request, 'project/postdetails.html',
                   {
                       'post': post,
