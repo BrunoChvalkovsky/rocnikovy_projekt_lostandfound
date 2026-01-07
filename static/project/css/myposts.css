@@ -1,0 +1,84 @@
+/* My Posts page styles */
+main > h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Button container for logout and create post */
+main > form,
+main > button {
+    display: inline-block;
+    margin: 0 0.5rem 2rem;
+}
+
+main > form button {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+main > form button:hover {
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Center the buttons */
+main > form:first-of-type {
+    text-align: center;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.post-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+}
+
+.post-item a {
+    display: block;
+    padding: 1.5rem;
+}
+
+.post-item h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+.post-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.post-item a {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    ul {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

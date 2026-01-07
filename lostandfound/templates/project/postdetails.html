@@ -1,4 +1,10 @@
 {% extends 'project/base.html'%}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'project/css/postdetails.css' %}">
+{% endblock %}
 
 {% block header %}
 {% endblock %}

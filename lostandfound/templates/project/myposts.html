@@ -1,4 +1,10 @@
 {% extends "project/base.html" %}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'project/css/myposts.css' %}">
+{% endblock %}
 
 {% block header %}
 {% endblock %}
@@ -16,10 +22,11 @@
 <ul>
   {% for post in posts %}
     <div class="post-item">
-      <a href="{% url 'postdetails' post.id %}">{{ post.title }}
+      <a href="{% url 'postdetails' post.id %}">
+        <h2>{{ post.title }}</h2>
         <img src="{{ post.image.url }}" alt="{{ post.title }}">
         {% if post.is_solved %}
-            (Solved)
+            <p style="color: #27ae60; font-weight: 600; margin-top: 0.5rem;">✓ Solved</p>
         {% endif %}
         </a>
     </div>
