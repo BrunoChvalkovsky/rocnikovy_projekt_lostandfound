@@ -72,10 +72,6 @@ ul {
     margin-bottom: 0.5rem;
 }
 
-.post-item a {
-    text-decoration: none;
-}
-
 @media (max-width: 768px) {
     ul {
         grid-template-columns: 1fr;
