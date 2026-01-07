@@ -165,6 +165,7 @@ textarea {
 
 input[type="text"]:focus,
 input[type="password"]:focus,
+input[type="file"]:focus,
 textarea:focus {
     outline: none;
     border-color: #667eea;

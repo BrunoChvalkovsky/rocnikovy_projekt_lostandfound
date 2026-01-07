@@ -72,6 +72,16 @@ ul {
     margin-bottom: 0.5rem;
 }
 
+.post-item a {
+    text-decoration: none;
+}
+
+.solved-indicator {
+    color: #27ae60;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
 @media (max-width: 768px) {
     ul {
         grid-template-columns: 1fr;
