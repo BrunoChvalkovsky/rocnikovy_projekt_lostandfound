@@ -16,29 +16,33 @@
 {% endblock %}
 
 {% block main %}
-    <h2>All Available Posts</h2>
+<div class="homepage">
+    <h2 class="homepage-title" >All Available Posts</h2>
     <ul>
         {% for post in posts %}
                 <div class="post-item">
                     {% if post.owner == user %}
                         <a class="owner" href="{% url 'myposts' %}">
+                            <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
                             {{ post.owner.profile.name }}
                         </a>
                     {% else %}
                     <a class="owner" href="{% url 'userposts' post.owner.id %}">
+                        <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
                         {{ post.owner.profile.name }}
                     </a>
                     {% endif %}
                     <a class="post-content" href="{% url 'postdetails' post.id %}">
-                        <h2>{{ post.title }}</h2>
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <h2 class="post-title">{{ post.title }}</h2>
+                        <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}">
                     </a>
                 </div>
         {% empty %}
-            <h2>No posts available.</h2>
+            <h2 class="homepage-title">No posts available.</h2>
         {% endfor %}
         
     </ul>
+</div>
 {% endblock %}
 
 {% block footer %}

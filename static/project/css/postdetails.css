@@ -1,0 +1,21 @@
+.postdetails {
+    margin-top: 12vh;
+}
+.owner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font: 600 3vh 'Inter', sans-serif;
+}
+.contact {
+    font: 400 2vh 'Inter', sans-serif;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+.post-title {
+    display: flex;
+    font: 600 4vh 'Inter', sans-serif;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    justify-self: center;
+}

@@ -1,3 +1,14 @@
+.homepage {
+    margin-top: 12vh;
+}
+.homepage-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
 .post-item {
     display: grid;
     grid-template-columns: 1fr;
@@ -5,5 +16,33 @@
     background-color: white;
     box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
     border-radius: 2.5vw;
+    padding: 3vw;
+    margin-top: 3vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
+.post-item:hover {
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+    transform: translateY(-0.5vh);
+}
+.owner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font: 600 2.5vh 'Inter', sans-serif;
+}
+.owner .user-img {
+    transform: translateY(-0.3vh);
+}
+.post-title {
+    font: 600 3.5vh 'Inter', sans-serif;
+}
+.post-image {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 1.5vw;
+}

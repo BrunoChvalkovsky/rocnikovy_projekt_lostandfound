@@ -1,10 +1,22 @@
 {% extends 'project/base.html'%}
+{% load static %}
+
+{% block title %}
+    <title>
+        {{ post.title }} - Post Details
+    </title>
+{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'project/css/postdetails.css' %}">
+{% endblock %}
 
 {% block header %}
 {% endblock %}
 
 {% block main %}
-    <div class="details">
+    <div class="postdetails">
     {% if post.owner == user %}
         <a class="owner" href="{% url 'myposts' %}">
             {{ post.owner.profile.name }}
@@ -14,8 +26,8 @@
             {{ post.owner.profile.name }}
         </a>
     {% endif %}
-        <p>{{ post.owner.profile.contact }}</p>
-        <h2>{{ post.title }}</h2>
+        <p class="contact">Kontakt: {{ post.owner.profile.contact }}</p>
+        <h2 class="post-title">{{ post.title }}</h2>
         <img src="{{ post.image.url }}" alt="{{ post.title }}">
         <p>{{ post.description }}</p>
         {% if post.owner == user %}
