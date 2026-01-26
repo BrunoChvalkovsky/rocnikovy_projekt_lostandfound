@@ -1,11 +1,27 @@
 .postdetails {
     margin-top: 12vh;
 }
+.container {
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(30, 30, 30, 0.1);
+    border-radius: 2.5vw;
+    padding: 5vw;
+    margin-top: 3vh;
+}
 .owner {
     display: flex;
     flex-direction: row;
     align-items: center;
     font: 600 3vh 'Inter', sans-serif;
+    margin-right: auto;
+    pointer-events: none;
+}
+.owner .user-img {
+    transform: translateY(-0.6vh);
+    pointer-events: all;
+}
+.owner-name {
+    pointer-events: all;
 }
 .contact {
     font: 400 2vh 'Inter', sans-serif;
@@ -14,8 +30,85 @@
 }
 .post-title {
     display: flex;
-    font: 600 4vh 'Inter', sans-serif;
-    margin-top: 1vh;
-    margin-bottom: 2vh;
+    justify-content: center;
+    text-align: center;
+    font: 600 5vh 'Inter', sans-serif;
+    margin: 1vh auto 2vh;
+}
+.post-image {
     justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 1.5vw;
+    object-fit: contain;
+}
+.description {
+    font: 400 2.5vh 'Inter', sans-serif;
+    margin-top: 3vh;
+    white-space: pre-wrap;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vh;
+    justify-content: center;
+    pointer-events: none;
+    width: auto;
+}
+.checkbox,
+.checkbox-text {
+    pointer-events: auto;
+    cursor: pointer;
+}
+.checkbox-container:hover {
+    cursor: pointer;
+}
+.checkbox {
+    width: 2.5vh;
+    height: 2.5vh;
+    border-radius: 0.5vh;
+}
+.checkbox-text {
+    font: 400 2.25vh 'Inter', sans-serif;
+}
+.save-button,
+.delete-button {
+    font: 600 2vh 'Inter', sans-serif;
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    width: auto;
+    max-width: 20vh;
+    align-self: center;
+}
+.save-button {
+    background-color: rgb(141, 203, 51);
+    color: black;
+    transition: background-color 0.2s, color 0.5s;
+}
+.delete-button {
+    background-color: rgb(220, 60, 75);
+    color: black;
+    transition: background-color 0.2s, color 0.5s;
+}
+.save-button:hover {
+    background-color: rgb(99, 157, 13);
+    color: white;
+    transition: background-color 0.2s, color 0.5s;
+}
+.delete-button:hover {
+    background-color: rgb(183, 15, 31);
+    color: white;
+    transition: background-color 0.2s, color 0.5s;
 }

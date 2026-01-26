@@ -74,26 +74,22 @@ body {
     display: block;
     object-fit: cover;
 }
-
 .user-name {
     display: inline-block;
     line-height: 1;
     vertical-align: middle;
 }
-
 .footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
     height: 4vh;
     font: 600 1rem 'Inter', sans-serif;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
     z-index: 1000;
     margin: 0;
-    transform: translateY(+1vh);
+    margin-top: 3vh;
 }
