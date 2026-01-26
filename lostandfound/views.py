@@ -98,7 +98,7 @@ def createpost(request):
 def userposts(request, id):
     posts = Post.objects.filter(owner__id=id)
     posts = posts.order_by('-id')
-    user = User.objects.get(id=id)
+    viewed_user = User.objects.get(id=id)
     if request.user.is_authenticated:
         profile = request.user.profile
     else:
@@ -107,7 +107,7 @@ def userposts(request, id):
                   {
                       'posts': posts,
                       'profile': profile,
-                      'user': user
+                      'viewed_user': viewed_user
                   })
 
 @login_required
