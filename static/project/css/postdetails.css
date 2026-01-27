@@ -44,6 +44,20 @@
     max-height: 80vh;
     border-radius: 1.5vw;
     object-fit: contain;
+    cursor: pointer;
+}
+.post-image.large {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1.01);
+	z-index: 1000;
+	width: 80%;
+	height: 90%;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 .description {
     font: 400 2.5vh 'Inter', sans-serif;
