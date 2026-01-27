@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #e9eef6;
+}
+
 a { 
     text-decoration: none; 
     color: inherit; 
@@ -9,15 +20,15 @@ h2 {
     font: 600 3.5vh 'Inter', sans-serif;
 }
 
-body {
-    background-color: #e9eef6;
+main {
+    flex: 1;
+    padding-top: 9vh;
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    position: relative;       
     background-color: white;
     box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
     height: 9vh;
@@ -28,7 +39,6 @@ body {
     right: 0;
     width: 100%;
     z-index: 1000;
-    margin: 0;
 }
 
 .logo {
@@ -42,10 +52,8 @@ body {
 .login {
     margin-left: auto;
     margin-right: 2.5vw;
-    align-self: center;
     color: darkblue;
-    border-color: darkblue;
-    border-style: solid;
+    border: 2px solid darkblue;
     border-radius: 3vh;
     padding: 0.75vh 1.75vh;
 }
@@ -68,28 +76,19 @@ body {
     opacity: 0.75;
     width: 5vh;
     height: 5vh;
-    margin-right: 0.4vw;
-    transform: translateY(-0.25vh);
-    flex: 0 0 5vh;
-    display: block;
     object-fit: cover;
 }
+
 .user-name {
-    display: inline-block;
     line-height: 1;
-    vertical-align: middle;
+    transform: translateY(+0.5vh);
 }
+
 .footer {
-    left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4vh;
     font: 600 1rem 'Inter', sans-serif;
-    z-index: 1000;
-    margin: 0;
-    margin-top: 3vh;
 }

@@ -1,3 +1,36 @@
-.userposts{
-    margin-top: 12vh;
+.userposts-title {
+    display: flex;
+    justify-content: center;
+    font: 600 5vh 'Inter', sans-serif;
+    margin-bottom: 2vh;
+}
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 1.5vw;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+.post-item {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
+    border-radius: 2.5vw;
+    padding: 3vw;
+    margin-top: 3vh;
+    pointer-events: all;
+}
+.post-image {
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 30vh;
+    border-radius: 1.5vw;
+    object-fit: contain;
 }
