@@ -1,18 +1,36 @@
 {% extends "project/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>
+        Signup - Lost and Found
+    </title>
+{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'project/css/signup.css' %}">
+{% endblock %}
 
 {% block header %}
 {% endblock %}
 
 {% block main %}
+<div class="container">
     <h2>Sign Up</h2>
     <form method="POST">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="contact" placeholder="Contact info" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Sign Up</button>
+        <input class="input-field" type="text" name="username" placeholder="Username" required>
+        <input class="input-field" type="text" name="name" placeholder="Full Name" required>
+        <input class="input-field" type="text" name="contact" placeholder="Contact info" required>
+        <input class="input-field" type="password" name="password" placeholder="Password" required>
+        <button class="submit-button" type="submit">Sign Up</button>
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
     </form>
+    <p>Already have an account? <a class="login-url" href="{% url 'login' %}">Log in!</a></p>
+</div>
 {% endblock %}
-{% block footer %} 
+{% block footer %}
 {% endblock %}

@@ -14,25 +14,25 @@ body {
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     margin-top: 18vh;
     border-radius: 2vh;
-    height: 40vh;
-    width: 25vw;
+    height: 50vh;
+    width: 27vw;
 
 }
 
 .input-field {
+    display: flex;
     font: 400 2vh 'Inter', sans-serif;
     padding: 1vh;
     margin-bottom: 2vh;
-    width: 17vw;
-    margin-right: auto;
-    margin-left: auto;
-
+    width: 20vw;
     border: 1px solid #ccc;
     border-radius: 1vh;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .submit-button {
@@ -57,4 +57,10 @@ body {
     font-style: italic;
     text-decoration: underline;
     font-weight: 600;
+}
+.login-url {
+    margin-top: 2vh;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
 }
