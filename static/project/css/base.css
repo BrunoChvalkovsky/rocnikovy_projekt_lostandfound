@@ -83,7 +83,28 @@ main {
     line-height: 1;
     transform: translateY(+0.5vh);
 }
-
+.post-item:hover {
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+    transform: translateY(-0.5vh);
+}
+.noposts-text {
+    display: block;
+    display: flex;
+    justify-self: center;
+    font: 600 4.5vh 'Inter', sans-serif;
+    margin-top: 20vh;
+    margin-bottom: 15vh;
+    margin-right: auto;
+    margin-left: auto;
+}
+.contact-info {
+    display: flex;
+    justify-content: center;
+    font: 500 2.5vh 'Inter', sans-serif;
+    margin-top: -1vh;
+    margin-bottom: 2vh;
+    color: #333333;
+}
 .footer {
     width: 100%;
     display: flex;

@@ -20,7 +20,8 @@
     border-radius: 2.5vw;
     padding: 3vw;
     margin-top: 3vh;
-    pointer-events: all;
+    pointer-events: auto;
+    cursor: pointer;
 }
 .post-image {
     justify-self: center;

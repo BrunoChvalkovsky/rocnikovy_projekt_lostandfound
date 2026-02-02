@@ -18,6 +18,7 @@
 {% block main %}
 <div class="myposts">
   <h2 class="myposts-title">My Posts</h2>
+  <p class="contact-info">Contact: {{ user.profile.contact }}</p>
 
   <button class="create-button" onclick="window.location.href='{% url 'createpost' %}'">New Post <br> +</button>
 
@@ -33,7 +34,8 @@
           </a>
       </div>
     {% empty %}
-      <h2>No posts yet.</h2>
+      <div></div>
+      <h2 class="noposts-text">No posts yet.</h2>
     {% endfor %}
   </ul>
 

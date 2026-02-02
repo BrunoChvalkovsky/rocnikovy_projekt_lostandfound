@@ -18,6 +18,7 @@
 {% block main %}
     <div class="userposts">
         <h2 class="userposts-title">All {{ viewed_user.profile.name }}'s Posts</h2>
+        <p class="contact-info">Contact: {{ viewed_user.profile.contact }}</p>
         <ul class="posts">
             {% for post in posts %}
                 <div class="post-item">
@@ -27,7 +28,8 @@
                     </a>
                 </div>
             {% empty %}
-                <h2>No posts yet.</h2>
+                <div></div>
+                <h2 class="noposts-text">No posts yet.</h2>
             {% endfor %}
         </ul>
     </div>

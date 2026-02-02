@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image: url("../images/babi.png");
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: 18vh;
+    border-radius: 2vh;
+    height: 40vh;
+    width: 25vw;
+
+}
+
+.input-field {
+    font: 400 2vh 'Inter', sans-serif;
+    padding: 1vh;
+    margin-bottom: 2vh;
+    width: 17vw;
+    margin-right: auto;
+    margin-left: auto;
+
+    border: 1px solid #ccc;
+    border-radius: 1vh;
+}
+
+.submit-button {
+    font: 600 2vh 'Inter', sans-serif;
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    justify-self: center;
+    background-color: darkblue;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    transition: background-color 0.2s, color 0.5s;
+}
+.container p {
+    font: 400 2vh 'Inter', sans-serif;
+}
+.container a {
+    color: rgb(0, 0, 209);
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: 600;
+}

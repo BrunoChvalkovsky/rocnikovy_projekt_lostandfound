@@ -20,7 +20,8 @@
     border-radius: 2.5vw;
     padding: 3vw;
     margin-top: 3vh;
-    pointer-events: all;
+    pointer-events: auto;
+    cursor: pointer;
 }
 .post-image {
     justify-self: center;
@@ -58,6 +59,7 @@
     transition: background-color 0.2s, color 0.5s;
 }
 .create-button {
+    margin-top: 5vh;
     background-color: rgb(30, 144, 255);
 }
 

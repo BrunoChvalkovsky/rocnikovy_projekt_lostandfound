@@ -17,13 +17,10 @@
     margin-top: 3vh;
     margin-left: 10vw;
     margin-right: 10vw;
-    pointer-events: all;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
-.post-item:hover {
-    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
-    transform: translateY(-0.5vh);
-}
 .owner {
     display: flex;
     flex-direction: row;
