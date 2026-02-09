@@ -47,6 +47,20 @@ main {
     transform: translateX(-50%);
     white-space: nowrap;
     font-size: 4vh;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgb(0, 102, 204) 0%, rgb(0, 70, 150) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    text-decoration: none;
+    background: linear-gradient(135deg, rgb(0, 70, 150) 0%, rgb(0, 40, 100) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .login {
@@ -66,19 +80,25 @@ main {
 
 .profile {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 0.5vw;
     margin-left: auto;
     margin-right: 2.5vw;
+    border-radius: 2vh;
+    height: 7vh;
+    width: 13vw;
+} 
+.profile:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0;
 }
-
 .user-img {
     opacity: 0.75;
     width: 5vh;
     height: 5vh;
     object-fit: cover;
 }
-
 .user-name {
     line-height: 1;
     transform: translateY(+0.5vh);

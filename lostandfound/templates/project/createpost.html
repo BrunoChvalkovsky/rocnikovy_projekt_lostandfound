@@ -1,20 +1,34 @@
 {% extends 'project/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>
+        Create New Post
+    </title>
+{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'project/css/createpost.css' %}">
+{% endblock %}
 
 {% block header %}
 {% endblock %}
 
 {% block main %}
+    <div class="create-post-container">
     <h2>Create New Post</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Title" value="{{ title|default:'' }}" required>
-        <textarea name="description" placeholder="Description" required>{{ description|default:'' }}</textarea>
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Create Post</button>
+        <input class="title-input" type="text" name="title" placeholder="Title" value="{{ title|default:'' }}" required>
+        <input class="file-input" type="file" name="image" accept="image/*" required>
+        <textarea class="description-input" name="description" placeholder="Description" required>{{ description|default:'' }}</textarea>
+        <button class="submit-button" type="submit">Create Post</button>
     </form>
     {% if error %}
         <p style="color:red;">{{ error }}</p>
     {% endif %}
+    </div>
 {% endblock %}
 
 {% block footer %}

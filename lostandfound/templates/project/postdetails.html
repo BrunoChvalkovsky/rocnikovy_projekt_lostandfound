@@ -31,7 +31,11 @@
                 </a>
             {% endif %}
             <p class="contact">Kontakt: {{ post.owner.profile.contact }}</p>
-            <h2 class="post-title">{{ post.title }}</h2>
+            <h2 class="post-title">{{ post.title }}
+                {% if post.is_solved %}
+                    (Solved)
+                {% endif %}
+            </h2>
             <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}">
             <p class="description" >{{ post.description }}</p>
             {% if post.owner == user %}
@@ -42,7 +46,7 @@
                         <input class="checkbox" type="checkbox" name="is_solved" id="id_is_solved" value="on" {% if post.is_solved %}checked{% endif %}>
                         <p class="checkbox-text">Mark as solved</p>
                     </label>
-                    <button class="save-button" type="submit">Save</button>
+                    <button class="save-button" name="save" type="submit">Save</button>
                     <button class="delete-button" type="submit" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete this post?');">
                         Delete
                     </button>

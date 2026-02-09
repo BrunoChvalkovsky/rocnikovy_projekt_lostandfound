@@ -33,7 +33,9 @@ def postdetails(request, id):
     if request.method == "POST" and request.user == post.owner:
         post.is_solved = not post.is_solved
         post.save()
-        if "delete" in request.POST:
+        if "save" in request.POST:
+            return redirect("myposts")
+        elif "delete" in request.POST:
             if post.image:
                 post.image.delete(save=False)
             post.delete()

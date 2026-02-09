@@ -8,11 +8,15 @@
 .owner {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     font: 600 3vh 'Inter', sans-serif;
     margin-right: auto;
     pointer-events: none;
     gap: 0.5vw;
+    border-radius: 2vh;
+    height: 7vh;
+    width: 13vw;
 }
 .owner .user-img {
     transform: translateY(-0.6vh);
@@ -20,6 +24,10 @@
 }
 .owner-name {
     pointer-events: all;
+}
+.owner:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0;
 }
 .contact {
     font: 400 2vh 'Inter', sans-serif;

@@ -1,0 +1,94 @@
+.create-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 13vh);
+    padding: 4vh 2vw;
+}
+
+.create-post-container h2 {
+    font: 600 4vh 'Inter', sans-serif;
+    text-align: center;
+    margin-bottom: 4vh;
+    color: #333333;
+}
+
+.create-post-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
+    border-radius: 2.5vw;
+    padding: 4vw;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.title-input,
+.description-input,
+.file-input {
+    font: 400 2vh 'Inter', sans-serif;
+    padding: 1.5vh 2vh;
+    border: 2px solid #e9eef6;
+    border-radius: 1.5vh;
+    background-color: #f8f9fb;
+    transition: border-color 0.3s, background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.description-input {
+    min-height: 15vh;
+    resize: vertical;
+    font-family: 'Inter', sans-serif;
+}
+
+.file-input {
+    cursor: pointer;
+    padding: 2vh;
+}
+
+.file-input::file-selector-button {
+    font: 500 1.8vh 'Inter', sans-serif;
+    color: darkblue;
+    background-color: white;
+    border: 2px solid darkblue;
+    border-radius: 2vh;
+    padding: 1vh 2vh;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.5s;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.submit-button {
+    font: 600 2.2vh 'Inter', sans-serif;
+    color: white;
+    background-color: rgb(30, 144, 255);
+    border: 2px;
+    border-radius: 2vh;
+    padding: 1.5vh 3vh;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 1vh;
+}
+
+.submit-button:hover {
+    color: white;
+    background-color: rgb(0, 102, 204);
+    transition: background-color 0.4s, color 0.5s;
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+}
+
+.create-post-container p {
+    font: 500 2vh 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 2vh;
+    color: #d32f2f;
+}

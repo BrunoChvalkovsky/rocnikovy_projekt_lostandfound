@@ -23,7 +23,11 @@
             {% for post in posts %}
                 <div class="post-item">
                     <a class="post-content" href="{% url 'postdetails' post.id %}">
-                        <h2>{{ post.title }}</h2>
+                        <h2>{{ post.title }}
+                            {% if post.is_solved %}
+                                (Solved)
+                            {% endif %}
+                        </h2>
                         <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}">
                     </a>
                 </div>

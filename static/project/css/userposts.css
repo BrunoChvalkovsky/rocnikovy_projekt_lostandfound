@@ -1,37 +1,78 @@
+/* userposts.css */
+
+.userposts {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2vw 4vh 2vw;
+    box-sizing: border-box;
+}
+
 .userposts-title {
     display: flex;
     justify-content: center;
-    font: 600 5vh 'Inter', sans-serif;
-    margin-bottom: 2vh;
+    align-items: center;
+    font: 600 4.5vh 'Inter', sans-serif;
+    margin-bottom: 1vh;
+    text-align: center;
 }
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    font: 500 2.5vh 'Inter', sans-serif;
+    margin-top: 0;
+    margin-bottom: 3vh;
+    color: #333333;
+}
+
 .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    gap: 1.5vw;
-    list-style: none; 
+    gap: 2vw;
+    list-style: none;
     padding: 0;
     margin: 0;
+    max-width: 100%;
 }
+
 .post-item {
     display: flex;
+    flex-direction: column;
     background-color: white;
     box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
-    border-radius: 2.5vw;
-    padding: 3vw;
-    margin-top: 3vh;
-    pointer-events: auto;
+    border-radius: 2vw;
+    padding: 2vw;
     cursor: pointer;
+    transition: box-shadow 0.3s;
+    min-width: 0;
 }
+
+.post-item:hover {
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.post-content h2 {
+    font: 600 2.8vh 'Inter', sans-serif;
+    margin: 0;
+    color: #333333;
+    text-align: center;
+}
+
 .post-image {
     justify-self: center;
     margin-left: auto;
     margin-right: auto;
     display: block;
     max-width: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     max-height: 30vh;
     border-radius: 1.5vw;
-    object-fit: contain;
+    object-fit: cover;
 }

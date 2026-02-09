@@ -1,9 +1,20 @@
+.homepage {
+    width: 100%;
+}
+
+.homepage ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .homepage-title {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     text-align: center;
+    margin-bottom: 2vh;
 }
 
 .post-item {
@@ -19,22 +30,54 @@
     margin-right: 10vw;
     pointer-events: auto;
     cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.post-item:hover {
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+    transform: translateY(-0.5vh);
 }
 
 .owner {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font: 600 2.5vh 'Inter', sans-serif;
     margin-right: auto;
+    margin-bottom: 2vh;
     gap: 0.5vw;
+    width: fit-content;
+    border-radius: 2vh;
+    height: 7vh;
+    width: 13vw;
 }
+
 .owner .user-img {
+    opacity: 0.75;
+    width: 5vh;
+    height: 5vh;
+    object-fit: cover;
     transform: translateY(-0.6vh);
 }
+
+.owner:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
 .post-title {
     font: 600 3.5vh 'Inter', sans-serif;
+    margin: 0;
+    color: #333333;
 }
+
 .post-image {
     justify-self: center;
     margin-left: auto;

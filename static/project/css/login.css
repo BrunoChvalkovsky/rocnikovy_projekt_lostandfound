@@ -49,6 +49,11 @@ body {
     display: flex;
     transition: background-color 0.2s, color 0.5s;
 }
+.submit-button:hover {
+    background-color: rgb(0, 0, 209);
+    transition: background-color 0.2s, color 0.5s;
+}
+
 .container p {
     font: 400 2vh 'Inter', sans-serif;
 }
@@ -57,4 +62,8 @@ body {
     font-style: italic;
     text-decoration: underline;
     font-weight: 600;
+}
+.container a:hover {
+    color: darkblue;
+    transition: color 0.4s;
 }

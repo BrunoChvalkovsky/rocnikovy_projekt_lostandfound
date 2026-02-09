@@ -1,74 +1,127 @@
+/* myposts.css */
+
+.myposts {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2vw 4vh 2vw;
+    box-sizing: border-box;
+}
+
 .myposts-title {
     display: flex;
     justify-content: center;
-    font: 600 5vh 'Inter', sans-serif;
-    margin-bottom: 2vh;
+    align-items: center;
+    font: 600 4.5vh 'Inter', sans-serif;
+    margin-bottom: 1vh;
+    text-align: center;
 }
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    font: 500 2.5vh 'Inter', sans-serif;
+    margin-top: 0;
+    margin-bottom: 3vh;
+    color: #333333;
+}
+
+.create-button {
+    font: 600 2.2vh 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5vh 3vh;
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+    width: auto;
+    min-width: 12vh;
+    color: white;
+    background-color: rgb(30, 144, 255);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+}
+
+.create-button:hover {
+    background-color: rgb(0, 102, 204);
+    box-shadow: 0 6px 15px rgba(30, 144, 255, 0.3);
+}
+
 .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    gap: 1.5vw;
-    list-style: none; 
+    gap: 2vw;
+    list-style: none;
     padding: 0;
     margin: 0;
+    max-width: 100%;
 }
+
 .post-item {
     display: flex;
+    flex-direction: column;
     background-color: white;
     box-shadow: 0 4px 10px rgba(30, 30, 30, 0.1);
-    border-radius: 2.5vw;
-    padding: 3vw;
-    margin-top: 3vh;
-    pointer-events: auto;
+    border-radius: 2vw;
+    padding: 2vw;
     cursor: pointer;
+    transition: box-shadow 0.3s;
+    min-width: 0;
 }
+
+.post-item:hover {
+    box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.post-content h2 {
+    font: 600 2.8vh 'Inter', sans-serif;
+    margin: 0;
+    color: #333333;
+    text-align: center;
+}
+
 .post-image {
     justify-self: center;
     margin-left: auto;
     margin-right: auto;
     display: block;
     max-width: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     max-height: 30vh;
     border-radius: 1.5vw;
-    object-fit: contain;
+    object-fit: cover;
 }
 
-.create-button,
 .logout-button {
-    font: 600 2vh 'Inter', sans-serif;
+    font: 600 2.2vh 'Inter', sans-serif;
     display: flex;
-    padding: 1vh 2vh;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5vh 3vh;
     border: none;
-    border-radius: 1.5vh;
+    border-radius: 2vh;
     cursor: pointer;
     width: auto;
-    max-width: 20vh;
+    min-width: 12vh;
     color: white;
-    transition: background-color 0.2s, color 0.5s;
+    background-color: rgb(220, 60, 75);
+    transition: background-color 0.3s, box-shadow 0.3s;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
-}
-
-.create-button:hover,
-.logout-button:hover {
-    color: black;
-    transition: background-color 0.2s, color 0.5s;
-}
-.create-button {
     margin-top: 5vh;
-    background-color: rgb(30, 144, 255);
 }
 
-.create-button:hover {
-    background-color: rgb(0, 102, 204);
-}
-.logout-button {
-    background-color: rgb(220, 60, 75);
-}
 .logout-button:hover {
     background-color: rgb(183, 15, 31);
+    box-shadow: 0 6px 15px rgba(220, 60, 75, 0.3);
 }
