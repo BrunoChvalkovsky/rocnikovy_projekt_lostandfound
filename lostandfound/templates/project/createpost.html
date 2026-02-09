@@ -1,35 +1,48 @@
 {% extends 'project/base.html' %}
 {% load static %}
-
 {% block title %}
     <title>
         Create New Post
     </title>
 {% endblock %}
-
 {% block head %}
-    {{ block.super }}
+{{ block.super }}
     <link rel="stylesheet" href="{% static 'project/css/createpost.css' %}">
 {% endblock %}
-
 {% block header %}
 {% endblock %}
-
 {% block main %}
     <div class="create-post-container">
     <h2>Create New Post</h2>
     <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
+{% csrf_token %}
         <input class="title-input" type="text" name="title" placeholder="Title" value="{{ title|default:'' }}" required>
         <input class="file-input" type="file" name="image" accept="image/*" required>
         <textarea class="description-input" name="description" placeholder="Description" required>{{ description|default:'' }}</textarea>
+        
+        <div class="location-group">
+            <label for="location-select">Location:</label>
+            <select class="location-select" name="location" id="location-select" required>
+                <option value="">Select existing location...</option>
+{% for location in locations %}
+                <option value="{{ location.id }}" {% if selected_location == location.id|stringformat:"s" %}selected{% endif %}>{{ location.name }}</option>
+{% endfor %}
+            </select>
+            <span class="or-text">or</span>
+            <input class="location-input" type="text" name="new_location" placeholder="Enter new location" value="{{ new_location|default:'' }}" required>
+        </div>
+        
+        <div class="time-group">
+            <label for="time-found">Time Found:</label>
+            <input class="time-input" type="datetime-local" name="time_found" id="time-found" value="{{ time_found|default:'' }}" required>
+        </div>
+        
         <button class="submit-button" type="submit">Create Post</button>
     </form>
-    {% if error %}
+{% if error %}
         <p style="color:red;">{{ error }}</p>
-    {% endif %}
+{% endif %}
     </div>
 {% endblock %}
-
 {% block footer %}
 {% endblock %}

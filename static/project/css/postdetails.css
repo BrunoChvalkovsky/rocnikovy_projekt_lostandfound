@@ -16,7 +16,7 @@
     gap: 0.5vw;
     border-radius: 2vh;
     height: 7vh;
-    width: 13vw;
+    width: fit-content;
 }
 .owner .user-img {
     transform: translateY(-0.6vh);
@@ -33,6 +33,19 @@
     font: 400 2vh 'Inter', sans-serif;
     margin-top: 1vh;
     margin-bottom: 2vh;
+}
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.location-time {
+    display: flex;
+    flex-direction: column;
+}
+.post-location {
+    margin: 0;
 }
 .post-title {
     display: flex;

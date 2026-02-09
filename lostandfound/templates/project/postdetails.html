@@ -19,18 +19,26 @@
 {% block main %}
     <div class="postdetails">
         <div class="container">
-            {% if post.owner == user %}
-                <a class="owner" href="{% url 'myposts' %}">
-                    <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
-                    <span class="owner-name">{{ post.owner.profile.name }}</span>
-                </a>
-            {% else %}
-                <a class="owner" href="{% url 'userposts' post.owner.id %}">
-                    <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
-                    <span class="owner-name">{{ post.owner.profile.name }}</span>
-                </a>
-            {% endif %}
-            <p class="contact">Kontakt: {{ post.owner.profile.contact }}</p>
+            <span class="post-header">
+                <div class="user-info">
+                    {% if post.owner == user %}
+                        <a class="owner" href="{% url 'myposts' %}">
+                            <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
+                            <span class="owner-name">{{ post.owner.profile.name }}</span>
+                        </a>
+                    {% else %}
+                        <a class="owner" href="{% url 'userposts' post.owner.id %}">
+                            <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
+                            <span class="owner-name">{{ post.owner.profile.name }}</span>
+                        </a>
+                    {% endif %}
+                    <p class="contact">Contact: {{ post.owner.profile.contact }}</p>
+                </div>
+                <div class="location-time">
+                    <h3 class="post-location">Location found at: {{ post.location.name }}</h3>
+                    <h3 class="post-time">Time found: {{ post.time_found|date:"F j, Y, g:i a" }}</h3>
+                </div>
+            </span>
             <h2 class="post-title">{{ post.title }}
                 {% if post.is_solved %}
                     (Solved)

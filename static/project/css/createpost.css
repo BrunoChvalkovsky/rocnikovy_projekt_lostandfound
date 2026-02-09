@@ -29,7 +29,10 @@
 
 .title-input,
 .description-input,
-.file-input {
+.file-input,
+.location-select,
+.location-input,
+.time-input {
     font: 400 2vh 'Inter', sans-serif;
     padding: 1.5vh 2vh;
     border: 2px solid #e9eef6;
@@ -38,6 +41,16 @@
     transition: border-color 0.3s, background-color 0.3s;
     width: 100%;
     box-sizing: border-box;
+}
+
+.title-input:focus,
+.description-input:focus,
+.location-select:focus,
+.location-input:focus,
+.time-input:focus {
+    outline: none;
+    border-color: rgb(30, 144, 255);
+    background-color: white;
 }
 
 .description-input {
@@ -53,9 +66,9 @@
 
 .file-input::file-selector-button {
     font: 500 1.8vh 'Inter', sans-serif;
-    color: darkblue;
+    color: rgb(30, 144, 255);
     background-color: white;
-    border: 2px solid darkblue;
+    border: 2px solid rgb(30, 144, 255);
     border-radius: 2vh;
     padding: 1vh 2vh;
     cursor: pointer;
@@ -63,26 +76,46 @@
 }
 
 .file-input::file-selector-button:hover {
-    background-color: darkblue;
+    background-color: rgb(30, 144, 255);
     color: white;
+}
+
+.location-group,
+.time-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.location-group label,
+.time-group label {
+    font: 600 2vh 'Inter', sans-serif;
+    color: #333333;
+    margin-bottom: 0.5vh;
+}
+
+.or-text {
+    text-align: center;
+    font: 500 1.8vh 'Inter', sans-serif;
+    color: #666666;
+    margin: 0.5vh 0;
 }
 
 .submit-button {
     font: 600 2.2vh 'Inter', sans-serif;
     color: white;
     background-color: rgb(30, 144, 255);
-    border: 2px;
+    border: none;
     border-radius: 2vh;
     padding: 1.5vh 3vh;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     margin-top: 1vh;
 }
 
 .submit-button:hover {
     color: white;
     background-color: rgb(0, 102, 204);
-    transition: background-color 0.4s, color 0.5s;
     box-shadow: 0 6px 15px rgba(30, 30, 30, 0.2);
 }
 

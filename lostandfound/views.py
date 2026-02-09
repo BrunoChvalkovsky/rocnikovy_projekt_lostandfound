@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Post, Profile
+from .models import Post, Profile, Location
 from io import BytesIO
 import uuid
 from django.core.files.base import ContentFile
@@ -22,6 +22,7 @@ def homepage(request):
                 {
                         'posts': posts,
                         "profile": profile,
+                        "locations": Location.objects.all()
                   })
 
 def postdetails(request, id):
@@ -58,45 +59,70 @@ def createpost(request):
         title = request.POST.get("title", "")
         description = request.POST.get("description", "")
         image = request.FILES.get("image")
-
+        location_id = request.POST.get("location")
+        new_location = request.POST.get("new_location")
+        time_found = request.POST.get("time_found")
+        
         if not image:
+            locations = Location.objects.all()
             return render(request, "project/createpost.html", {
                 "error": "Image is required.",
                 "title": title,
                 "description": description,
+                "selected_location": location_id,
+                "new_location": new_location,
+                "time_found": time_found,
+                "profile": profile,
+                "locations": locations,
             })
-
+        
         try:
             img = Image.open(image)
             img = img.convert("RGB")
-
             buffer = BytesIO()
             img.save(buffer, format="JPEG", quality=85)
             buffer.seek(0)
-
             filename = f"{uuid.uuid4()}.jpg"
             jpg_image = ContentFile(buffer.read(), name=filename)
         except Exception:
+            locations = Location.objects.all()
             return render(request, "project/createpost.html", {
                 "error": "Invalid or unsupported image file.",
                 "title": title,
                 "description": description,
+                "selected_location": location_id,
+                "new_location": new_location,
+                "time_found": time_found,
+                "profile": profile,
+                "locations": locations,
             })
-
+        
+        # Handle location - prefer new_location if provided
+        location = None
+        if new_location and new_location.strip():
+            location, created = Location.objects.get_or_create(name=new_location.strip())
+        elif location_id:
+            try:
+                location = Location.objects.get(id=location_id)
+            except Location.DoesNotExist:
+                pass
+        
         Post.objects.create(
             owner=request.user,
             title=title,
             description=description,
             image=jpg_image,
+            location=location,
+            time_found=time_found if time_found else None,
         )
-
         return redirect("myposts")
-
-    return render(request, "project/createpost.html",{
-                      "profile": profile,
+    
+    # GET request
+    locations = Location.objects.all()
+    return render(request, "project/createpost.html", {
+        "profile": profile,
+        "locations": locations,
     })
-
-
 def userposts(request, id):
     posts = Post.objects.filter(owner__id=id)
     posts = posts.order_by('-id')

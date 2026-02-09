@@ -20,6 +20,9 @@ h2 {
     font: 600 3.5vh 'Inter', sans-serif;
 }
 
+h3 {
+    font: 600 2.5vh 'Inter', sans-serif;
+}
 main {
     flex: 1;
     padding-top: 9vh;
@@ -87,7 +90,7 @@ main {
     margin-right: 2.5vw;
     border-radius: 2vh;
     height: 7vh;
-    width: 13vw;
+    width: fit-content;
 } 
 .profile:hover {
     text-decoration: underline;

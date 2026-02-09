@@ -50,7 +50,6 @@
     width: fit-content;
     border-radius: 2vh;
     height: 7vh;
-    width: 13vw;
 }
 
 .owner .user-img {
@@ -60,18 +59,28 @@
     object-fit: cover;
     transform: translateY(-0.6vh);
 }
-
 .owner:hover {
     text-decoration: underline;
     background-color: #f0f0f0;
 }
-
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.location-time {
+    display: flex;
+    flex-direction: column;
+}
+.post-location {
+    margin: 0;
+}
 .post-content {
     display: flex;
     flex-direction: column;
     gap: 2vh;
 }
-
 .post-title {
     font: 600 3.5vh 'Inter', sans-serif;
     margin: 0;
