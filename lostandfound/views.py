@@ -7,8 +7,8 @@ from io import BytesIO
 import uuid
 from django.core.files.base import ContentFile
 from PIL import Image
-
 from pillow_heif import register_heif_opener
+
 register_heif_opener()
 
 def homepage(request):
