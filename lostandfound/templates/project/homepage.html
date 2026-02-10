@@ -10,6 +10,7 @@
 {% block head %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'project/css/homepage.css' %}">
+    <script src="{% static 'project/js/homepage.js' %}"></script>
 {% endblock %}
 
 {% block header %}
@@ -17,7 +18,30 @@
 
 {% block main %}
     <div class="homepage">
-        <h2 class="homepage-title" >All Available Posts</h2>
+        <div class="upper-container">
+            <h2 class="homepage-title" >All Available Posts</h2>
+            <form method="GET" action="{% url 'homepage' %}" class="filter-form">
+                <div class="filter-group">
+                    <label for="location_id">Location:</label>
+                    <select class="filter-dropdown" name="location_id" id="location_id" onchange="this.form.submit()">
+                        <option value="">All Locations</option>
+                        {% for loc in locations %}
+                            <option value="{{ loc.id }}" {% if loc.id == selected_location %}selected{% endif %}>
+                                {{ loc.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="date_sort">Sort by time:</label>
+                    <select class="filter-dropdown" name="date_sort" id="date_sort" onchange="this.form.submit()">
+                        <option value="newest" {% if selected_sort == 'newest' %}selected{% endif %}>Newest First</option>
+                        <option value="oldest" {% if selected_sort == 'oldest' %}selected{% endif %}>Oldest First</option>
+                    </select>
+                </div>
+                <button type="button" class="button-reset" onclick="clearFilters()">Clear Filters</button>
+            </form>
+        </div>
         <ul>
             {% for post in posts %}
                     <div class="post-item">
@@ -25,12 +49,12 @@
                         {% if post.owner == user %}
                             <a class="owner" href="{% url 'myposts' %}">
                                 <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
-                                {{ post.owner.profile.name }}
+                                <span class="owner-name">{{ post.owner.profile.name }}</span>
                             </a>
                         {% else %}
                         <a class="owner" href="{% url 'userposts' post.owner.id %}">
                             <img class="user-img" src="{% static 'project/images/user-blank.svg' %}" alt="{{ profile.name|default:'User' }}">
-                            {{ post.owner.profile.name }}
+                            <span class="owner-name">{{ post.owner.profile.name }}</span>
                         </a>
                         {% endif %}
                         <div class="location-time">

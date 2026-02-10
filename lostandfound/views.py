@@ -18,11 +18,22 @@ def homepage(request):
         profile = request.user.profile
     else:
         profile = None
+    location_id = request.GET.get('location_id')
+    if location_id:
+        posts = posts.filter(location_id=location_id)
+
+    date_sort = request.GET.get('date_sort')
+    if date_sort == 'oldest':
+        posts = posts.order_by('time_found')
+    else:
+        posts = posts.order_by('-time_found')
     return render(request, 'project/homepage.html',
                 {
                         'posts': posts,
                         "profile": profile,
-                        "locations": Location.objects.all()
+                        "locations": Location.objects.all(),
+                        'selected_location': int(location_id) if location_id else None,
+                        'selected_sort': date_sort,
                   })
 
 def postdetails(request, id):
