@@ -76,3 +76,83 @@
     border-radius: 1.5vw;
     object-fit: cover;
 }
+
+/* Mobile devices (up to 480px) */
+@media (max-width: 480px) {
+    .userposts {
+        padding: 0 3vw 4vh 3vw;
+    }
+    
+    .userposts-title {
+        font: 600 3.5vh 'Inter', sans-serif;
+    }
+    
+    .contact-info {
+        font: 500 2vh 'Inter', sans-serif;
+        margin-bottom: 2.5vh;
+    }
+    
+    .posts {
+        grid-template-columns: 1fr;
+        gap: 3vh;
+    }
+    
+    .post-item {
+        border-radius: 4vw;
+        padding: 4vw;
+    }
+    
+    .post-content h2 {
+        font: 600 2.5vh 'Inter', sans-serif;
+    }
+    
+    .post-image {
+        max-height: 25vh;
+        border-radius: 3vw;
+    }
+}
+
+/* Tablet devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .userposts-title {
+        font: 600 4vh 'Inter', sans-serif;
+    }
+    
+    .contact-info {
+        font: 500 2.2vh 'Inter', sans-serif;
+    }
+    
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5vw;
+    }
+    
+    .post-item {
+        border-radius: 3vw;
+        padding: 3vw;
+    }
+    
+    .post-content h2 {
+        font: 600 2.6vh 'Inter', sans-serif;
+    }
+    
+    .post-image {
+        max-height: 28vh;
+        border-radius: 2vw;
+    }
+}
+
+/* Laptop devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .post-item {
+        border-radius: 2.5vw;
+    }
+    
+    .post-content h2 {
+        font: 600 2.7vh 'Inter', sans-serif;
+    }
+}
