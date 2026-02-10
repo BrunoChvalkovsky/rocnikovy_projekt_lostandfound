@@ -3,6 +3,7 @@
 
 # Database files
 db.sqlite3
+.env
 
 # IDE files
 .vscode
