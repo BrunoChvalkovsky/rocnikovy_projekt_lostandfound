@@ -8,6 +8,7 @@
 {% block head %}
 {{ block.super }}
     <link rel="stylesheet" href="{% static 'project/css/createpost.css' %}">
+    <script src="{% static 'project/js/createpost.js' %}"></script>
 {% endblock %}
 {% block header %}
 {% endblock %}
@@ -22,14 +23,14 @@
         
         <div class="location-group">
             <label for="location-select">Location:</label>
-            <select class="location-select" name="location" id="location-select" required>
+            <select class="location-select" name="location" id="location-select">
                 <option value="">Select existing location...</option>
 {% for location in locations %}
                 <option value="{{ location.id }}" {% if selected_location == location.id|stringformat:"s" %}selected{% endif %}>{{ location.name }}</option>
 {% endfor %}
             </select>
             <span class="or-text">or</span>
-            <input class="location-input" type="text" name="new_location" placeholder="Enter new location" value="{{ new_location|default:'' }}" required>
+            <input class="location-input" type="text" name="new_location" id="new-location" placeholder="Enter new location" value="{{ new_location|default:'' }}">
         </div>
         
         <div class="time-group">

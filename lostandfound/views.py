@@ -24,9 +24,9 @@ def homepage(request):
 
     date_sort = request.GET.get('date_sort')
     if date_sort == 'oldest':
-        posts = posts.order_by('time_found')
-    else:
         posts = posts.order_by('-time_found')
+    else:
+        posts = posts.order_by('time_found')
     return render(request, 'project/homepage.html',
                 {
                         'posts': posts,
@@ -108,7 +108,31 @@ def createpost(request):
                 "locations": locations,
             })
         
-        # Handle location - prefer new_location if provided
+        if not location_id and not new_location:
+            return render(request, 'project/createpost.html', {
+                'error': 'Please select an existing location or enter a new one.',
+                "image" : image,
+                "title": title,
+                "description": description,
+                "selected_location": location_id,
+                "new_location": new_location,
+                "time_found": time_found,
+                "profile": profile,
+                "locations": locations,
+            })
+        
+        if location_id and new_location:
+            return render(request, 'project/createpost.html', {
+                'error': 'Please choose either an existing location OR enter a new one, not both.',
+                "image" : image,
+                "title": title,
+                "description": description,
+                "selected_location": location_id,
+                "new_location": new_location,
+                "time_found": time_found,
+                "profile": profile,
+                "locations": locations,
+            })
         location = None
         if new_location and new_location.strip():
             location, created = Location.objects.get_or_create(name=new_location.strip())
