@@ -45,7 +45,7 @@ Realizace webové aplikace pro komunitní sdílení informací o nalezených pre
     ```
 7. Load data from fixture
     ```sh
-    python manage.py loaddata fixture.json
+    python manage.py loaddata example.json
     ```
 8. Run the development server:
     ```sh
