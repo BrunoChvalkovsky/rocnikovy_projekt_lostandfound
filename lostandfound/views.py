@@ -13,7 +13,6 @@ register_heif_opener()
 
 def homepage(request):
     posts = Post.objects.filter(is_solved=False).exclude(owner=request.user) if request.user.is_authenticated else Post.objects.filter(is_solved=False)
-    posts = posts.order_by('-id')
     if request.user.is_authenticated:
         profile = request.user.profile
     else:
@@ -24,9 +23,9 @@ def homepage(request):
 
     date_sort = request.GET.get('date_sort')
     if date_sort == 'oldest':
-        posts = posts.order_by('-time_found')
-    else:
         posts = posts.order_by('time_found')
+    else:
+        posts = posts.order_by('-time_found')
     return render(request, 'project/homepage.html',
                 {
                         'posts': posts,
