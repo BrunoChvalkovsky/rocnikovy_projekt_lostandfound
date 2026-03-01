@@ -125,3 +125,124 @@
     margin-top: 2vh;
     color: #d32f2f;
 }
+
+/* Mobile devices (up to 480px) */
+@media (max-width: 480px) {
+    .create-post-container {
+        padding: 3vh 3vw;
+    }
+    
+    .create-post-container h2 {
+        font: 600 3vh 'Inter', sans-serif;
+        margin-bottom: 3vh;
+    }
+    
+    .create-post-container form {
+        gap: 2vh;
+        border-radius: 4vw;
+        padding: 5vw;
+    }
+    
+    .title-input,
+    .description-input,
+    .file-input,
+    .location-select,
+    .location-input,
+    .time-input {
+        font: 400 1.8vh 'Inter', sans-serif;
+        padding: 1.2vh 1.5vh;
+    }
+    
+    .description-input {
+        min-height: 12vh;
+    }
+    
+    .file-input::file-selector-button {
+        font: 500 1.6vh 'Inter', sans-serif;
+        padding: 0.8vh 1.5vh;
+    }
+    
+    .location-group label,
+    .time-group label {
+        font: 600 1.8vh 'Inter', sans-serif;
+    }
+    
+    .or-text {
+        font: 500 1.6vh 'Inter', sans-serif;
+    }
+    
+    .submit-button {
+        font: 600 2vh 'Inter', sans-serif;
+        padding: 1.3vh 2.5vh;
+    }
+    
+    .create-post-container p {
+        font: 500 1.8vh 'Inter', sans-serif;
+    }
+}
+
+/* Tablet devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .create-post-container {
+        padding: 3.5vh 4vw;
+    }
+    
+    .create-post-container h2 {
+        font: 600 3.5vh 'Inter', sans-serif;
+        margin-bottom: 3.5vh;
+    }
+    
+    .create-post-container form {
+        gap: 2.2vh;
+        border-radius: 3.5vw;
+        padding: 4.5vw;
+    }
+    
+    .title-input,
+    .description-input,
+    .file-input,
+    .location-select,
+    .location-input,
+    .time-input {
+        font: 400 1.9vh 'Inter', sans-serif;
+        padding: 1.3vh 1.8vh;
+    }
+    
+    .description-input {
+        min-height: 13vh;
+    }
+    
+    .file-input::file-selector-button {
+        font: 500 1.7vh 'Inter', sans-serif;
+        padding: 0.9vh 1.8vh;
+    }
+    
+    .location-group label,
+    .time-group label {
+        font: 600 1.9vh 'Inter', sans-serif;
+    }
+    
+    .or-text {
+        font: 500 1.7vh 'Inter', sans-serif;
+    }
+    
+    .submit-button {
+        font: 600 2.1vh 'Inter', sans-serif;
+        padding: 1.4vh 2.8vh;
+    }
+    
+    .create-post-container p {
+        font: 500 1.9vh 'Inter', sans-serif;
+    }
+}
+
+/* Laptop devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .create-post-container form {
+        border-radius: 3vw;
+    }
+    
+    .description-input {
+        min-height: 14vh;
+    }
+}
